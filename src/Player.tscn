@@ -4,20 +4,24 @@
 
 [sub_resource type="ProceduralSky" id=2]
 sky_top_color = Color( 0, 0.643137, 1, 1 )
-sky_horizon_color = Color( 0.941176, 0.345098, 0.0235294, 1 )
-sky_curve = 0.192919
-ground_bottom_color = Color( 0, 0, 0, 1 )
-ground_horizon_color = Color( 0.941176, 0.345098, 0.0235294, 1 )
-sun_energy = 38.45
+sky_horizon_color = Color( 0.815686, 0.815686, 0.815686, 1 )
+ground_bottom_color = Color( 0.815686, 0.815686, 0.815686, 1 )
+ground_horizon_color = Color( 0.815686, 0.815686, 0.815686, 1 )
 
 [sub_resource type="Environment" id=3]
 background_mode = 2
 background_sky = SubResource( 2 )
-dof_blur_far_enabled = true
+background_color = Color( 0.101961, 0.682353, 1, 1 )
+ambient_light_color = Color( 0.815686, 0.815686, 0.815686, 1 )
+fog_enabled = true
+fog_color = Color( 0.815686, 0.815686, 0.815686, 1 )
+fog_depth_begin = 377.4
+fog_depth_end = 477.3
+fog_depth_curve = 6.27667
+fog_transmit_curve = 0.0717937
 dof_blur_far_distance = 100.0
 dof_blur_far_transition = 10.0
 dof_blur_far_quality = 2
-glow_enabled = true
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -34,3 +38,9 @@ far = 8192.0
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0 )
 shape = SubResource( 1 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.326575, -0.945171, 0, 0.945171, -0.326575, 0, 14.5769, 0 )
+light_energy = 2.53
+light_size = 0.165
+light_bake_mode = 2

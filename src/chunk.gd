@@ -5,7 +5,8 @@ var mesh_instance
 var noise
 var x
 var z
-var chunk_size
+var chunk_size = 128
+var should_remove = true
 
 func _init(noise, x, z, chunk_size):
 	self.noise = noise
@@ -17,15 +18,14 @@ func _ready():
 	generate_chunk()
 	
 func generate_chunk():
-	
-	var noise = OpenSimplexNoise.new()
+	randomize()
+	noise = OpenSimplexNoise.new()
 	noise.period = 80
 	noise.octaves = 6
-
 	var plane_mesh = PlaneMesh.new() # Base mesh we are modifying
-	plane_mesh.size = Vector2(400,400)
-	plane_mesh.subdivide_depth = 100
-	plane_mesh.subdivide_width = 100
+	plane_mesh.size = Vector2(chunk_size,chunk_size)
+	plane_mesh.subdivide_depth = chunk_size * 0.25
+	plane_mesh.subdivide_width = chunk_size * 0.25
 	
 	var surface_tool = SurfaceTool.new()
 	surface_tool.create_from(plane_mesh, 0)
@@ -37,7 +37,7 @@ func generate_chunk():
 	
 	for i in range(data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		vertex.y = noise.get_noise_3d(vertex.x,vertex.y,vertex.z) * 60 # Randomly set y values to make spiky
+		vertex.y = noise.get_noise_3d(vertex.x + x,vertex.y,vertex.z + z) * 60 # Randomly set y values to make spiky
 		data_tool.set_vertex(i,vertex)
 		
 	for i in range(array_plane.get_surface_count()):

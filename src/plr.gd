@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var moveSpeed : float = 20.0
+var moveSpeed : float = 150.0
 var jumpForce : float = 10.0
 var gravity : float = 12.0
 
@@ -59,32 +59,32 @@ func _physics_process(delta):
 	vel.z = relativeDir.z * moveSpeed
 	
 	# Delta is for every frame
-	vel.y -= gravity * delta * 0.9
+	#vel.y -= gravity * delta * 0.9
 	
 	# Move player!
 	vel = move_and_slide(vel, Vector3.UP)
 	
 	# Jump
-	if Input.is_action_pressed("up"): # Pushes plane up
+	#if Input.is_action_pressed("up"): # Pushes plane up
 		# Set y to jump vel
-		vel.y += 0.5
-
+	#	vel.y += jumpForce
+	
+	#if Input.is_action_pressed("shift"): # Pushes plane up
+		# Set y to jump vel
+		#vel.y -= jumpForce
+	
 # Process for none physics related 
 func _process(delta):
 	# Rotate camera along the x axis
 	# (Up and down of mouse movement)
 	if (toggled == false):
-		camera.rotation_degrees.x -= (mouseDelta.y * lookSensitivity * delta +
-			Input.get_action_raw_strength("cam_left")*delta*joySensitivity -
-			Input.get_action_raw_strength("cam_right")*delta*joySensitivity)
+		camera.rotation_degrees.x -= (mouseDelta.y * lookSensitivity * delta)
 
 		# Stop rotating when not moving (sensitivity)
 		# Clamp camera x rotate
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x,minLookAngle,maxLookAngle) # Prevent over looking camera
 		# Rotate player along Y axis
-		rotation_degrees.y -= (mouseDelta.x * lookSensitivity * delta + 
-			Input.get_action_raw_strength("cam_down")*delta*joySensitivity -
-			Input.get_action_raw_strength("cam_up")*delta*joySensitivity)
+		rotation_degrees.y -= (mouseDelta.x * lookSensitivity * delta)
 		# Reset mouse delta
 	mouseDelta = Vector2()
 	
