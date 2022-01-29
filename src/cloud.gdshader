@@ -1,45 +1,65 @@
-// NOTE: Shader automatically converted from Godot Engine 3.4.2.stable's SpatialMaterial.
-
 shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
-uniform vec4 albedo : hint_color;
-uniform sampler2D texture_albedo : hint_albedo;
-uniform float specular;
-uniform float metallic;
-uniform float roughness : hint_range(0,1);
-uniform float point_size : hint_range(0,128);
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
+render_mode cull_back, depth_draw_alpha_prepass, shadow_to_opacity;
 
-uniform vec4 white_color : hint_color = vec4(1.0,1.0,1.0,1.0);
-uniform vec4 gray_color : hint_color =  vec4(1.0,1.0,1.0,0.5);
+const float noise_scale = 0.00005;
 
-varying flat vec3 out_color;
+uniform float bias = 0.4;
+uniform float scale = 100.0;
+uniform float seed = -1000.0;
+uniform vec2 speed = vec2( 2.0, 0.0 );
+uniform vec2 transform_speed = vec2( 0.0, 0.0001 );
 
-vec3 lerpColor(vec4 a, vec4 b, float t) {
-	float rr = a.r + (b.r - a.r) * t;
-	float gg = a.g + (b.g - a.b) * t;
-	float bb = a.b + (b.b - a.b) * t;
-	return vec3(rr,gg,bb);
+varying vec3 VERTEX_WORLD;
+
+highp float random( vec2 pos )
+{
+	highp float a = 12.9898;
+	highp float b = 78.233;
+	highp float c = 43758.5453;
+	highp float dt = dot( pos, vec2( a, b ) );
+	highp float sn = mod( dt, 3.14 );
+	return fract( sin(sn) * c );
+	//return fract(sin(dot(pos, vec2(12.9898,78.233))) * 43758.5453);
 }
 
-void vertex() {
-	UV=UV*uv1_scale.xy+uv1_offset.xy;
-	
-	out_color = vec3(white_color.r,gray_color.g,gray_color.b);
-	if (VERTEX.y > 1.0) {
-		out_color = lerpColor(white_color, gray_color, clamp((VERTEX.y - 1.0) / 3.0, 0.0, 1.0));
-	}
-} 
+float value_noise( vec2 pos )
+{
+	vec2 p = floor( pos );
+	vec2 f = fract( pos );
 
+	float v00 = random( p + vec2( 0.0, 0.0 ) );
+	float v10 = random( p + vec2( 1.0, 0.0 ) );
+	float v01 = random( p + vec2( 0.0, 1.0 ) );
+	float v11 = random( p + vec2( 1.0, 1.0 ) );
 
-void fragment() {
-	vec2 base_uv = UV;
-	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	ALBEDO = out_color ;//* albedo_tex.rgb;
-	METALLIC = metallic;
-	ROUGHNESS = roughness;
-	SPECULAR = specular;
+	vec2 u = smoothstep( 0.0, 1.0, f );//f * f * ( 3.0 - 2.0 * f );
+
+	return mix( mix( v00, v10, u.x ), mix( v01, v11, u.x ), u.y );
+}
+
+void vertex( )
+{
+	VERTEX_WORLD = ( WORLD_MATRIX * vec4( VERTEX, 1.0 ) ).xyz;
+}
+
+void fragment( )
+{
+	vec3 p = VERTEX_WORLD * scale;
+
+	// 雲の色を計算
+	vec2 pos_a = ( vec2( p.x, p.z + seed ) + ( TIME * speed ) ) * noise_scale;
+	vec2 pos_b = pos_a + transform_speed * TIME;
+
+	float h = (
+		value_noise( pos_a )			* 8.0
+	+	value_noise( pos_a * 4.2 )		* 8.0
+	+	value_noise( pos_a * 8.4 )		* 8.0
+	+	value_noise( pos_a * 17.6 )		* 8.0
+	+	value_noise( pos_a * 61.8 )		* 4.0
+	+	value_noise( pos_b * 90.1 )		* 4.0
+	+	value_noise( pos_b * 110.1 )	* 2.0
+	+	value_noise( pos_b * 220.0 )	* 2.0
+	) / 46.0;
+
+	ALPHA = max( h - bias, 0.0 );
 }

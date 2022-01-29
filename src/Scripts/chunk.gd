@@ -16,12 +16,12 @@ func _init(noise, x, z, chunk_size):
 	
 func _ready():
 	generate_chunk()
-	
+
 func generate_chunk():
 	randomize()
 	noise = OpenSimplexNoise.new()
-	noise.period = 80
-	noise.octaves = 6
+	noise.period = 200
+	noise.octaves = 10
 	var plane_mesh = PlaneMesh.new() # Base mesh we are modifying
 	plane_mesh.size = Vector2(chunk_size,chunk_size)
 	plane_mesh.subdivide_depth = chunk_size * 0.25
@@ -40,7 +40,7 @@ func generate_chunk():
 	
 	for i in range(data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
-		vertex.y = noise.get_noise_3d(vertex.x + x,vertex.y,vertex.z + z) * 60 # Randomly set y values to make spiky
+		vertex.y = noise.get_noise_3d(vertex.x + x,vertex.y,vertex.z + z) * 120 # Randomly set y values to make spiky
 		data_tool.set_vertex(i,vertex)
 		
 	for i in range(array_plane.get_surface_count()):

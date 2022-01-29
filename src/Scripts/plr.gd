@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var moveSpeed : float = 150.0
+var moveSpeed : float = 500.0
 var jumpForce : float = 10.0
 var gravity : float = 12.0
 

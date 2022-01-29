@@ -13,15 +13,9 @@ _global_script_classes=[ {
 "class": "Chunk",
 "language": "GDScript",
 "path": "res://Scripts/chunk.gd"
-}, {
-"base": "Spatial",
-"class": "Drop",
-"language": "GDScript",
-"path": "res://Scripts/drop.gd"
 } ]
 _global_script_class_icons={
-"Chunk": "",
-"Drop": ""
+"Chunk": ""
 }
 
 [application]
