@@ -44,5 +44,27 @@ Global game jam 2022!!
   - Noisemap?
     - Random gen 
 
+## Day 2:
+
+  - Floor
+    - Collisions?
+    - limit y position
+  - How to trigger day night cycle
+    - ring collecting?
+      - hud 
+        - points 
+        - timer
+  - Day night cycle
+    - Moving the cloud control
+    - Update cloud shader uniforms
+    - Day mode, sun moving?
+  - Audio
+    - placeholders
+    - when what where
+  - menu?
+    - Title ? 
+    - Icons ?
+    - hud
+
 
 
