@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 const chunk_size = 128
 const chunk_amount = 16
@@ -8,10 +8,18 @@ var chunks = {}
 var unready_chunks = {}
 var thread
 
+# Multithreading!
+var threads = []
+const max_threads = 3
+
+# Sun values
+var xSun = 1
+
 func _ready():
 	# Init randomization stuffs
 	# Enable threading for faster loadtimes!
-	thread = Thread.new()
+	for i in max_threads:
+		threads.append(Thread.new())
 
 func _process(delta):
 	# Chunks
@@ -21,24 +29,34 @@ func _process(delta):
 	
 	# Day Night Cycle!
 	
-
+	sunUpdate(delta)
 	
+func sunUpdate(delta):
+	# Update sun rotation
+	xSun+=delta
+	$Sun.set_rotation(Vector3(xSun,0,0))
+	# Randomize clouds? as time progress
+	
+	
+
 # ==================================================CHUNKS============================================
 func add_chunk(x, z):
 	var key = str(x) + "," + str(z) # Yes, keys are strings :P TODO optimize
 	if chunks.has(key) or unready_chunks.has(key): # If the key we're making exsists, don't generate!
 		return
-	
-	if not thread.is_active(): # If the thread didn't start, start it
-		thread.start(self, "load_chunk",[thread,x,z])
-		unready_chunks[key] = 1 # Sets the chunk to unready state so we can add to it
+
+	for t in threads: # If the thread didn't start, start it
+		if not t.is_started():
+			t.start(self.load_chunk,[t,x,z])
+			unready_chunks[key] = 1 # Sets the chunk to unready state so we can add to it
+			break 
 
 func load_chunk(arr):
 	var thread = arr[0]
 	var x = arr[1]
 	var z = arr[2]
 	var chunk = Chunk.new(noise, x*chunk_size, z*chunk_size, chunk_size) # Gen chunk
-	chunk.translation = Vector3(x * chunk_size, 0, z * chunk_size) # Set chunk position
+	chunk.position = Vector3(x*chunk_size, 0, z*chunk_size) # Set chunk position
 	call_deferred("chunk_load_done", chunk, thread) # End chunk gen for chunk
 	
 func chunk_load_done(chunk, thread):
@@ -56,7 +74,7 @@ func get_chunk(x, z):
 
 func update_chunks():
 	# Get player location
-	var player_translation = $Plane.translation
+	var player_translation = $Plane.position
 	var p_x = int(player_translation.x)/chunk_size
 	var p_z = int(player_translation.z)/chunk_size
 	

@@ -1,0 +1,40 @@
+[gd_resource type="Environment" load_steps=7 format=3 uid="uid://d3xlckplph5ge"]
+
+[ext_resource type="Shader" path="res://clouds.gdshader" id="1_a5apq"]
+[ext_resource type="StreamTexture3D" uid="uid://capq7reqro17i" path="res://perlworlnoise.tga" id="2_ttd4a"]
+[ext_resource type="Texture2D" uid="uid://dfkye0uf4i6w1" path="res://weather.bmp" id="3_qt1cp"]
+[ext_resource type="StreamTexture3D" uid="uid://c4dp6g6gouj2b" path="res://worlnoise.bmp" id="4_les07"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jcxn0"]
+shader = ExtResource( "1_a5apq" )
+shader_param/_density = 0.05
+shader_param/cloud_coverage = 0.25
+shader_param/_time_scale = 1.0
+shader_param/_time_offset = 0.0
+shader_param/rayleigh = 2.0
+shader_param/rayleigh_color = Color(0.26, 0.41, 0.58, 1)
+shader_param/mie = 0.005
+shader_param/mie_eccentricity = 0.8
+shader_param/mie_color = Color(0.63, 0.77, 0.92, 1)
+shader_param/turbidity = 10.0
+shader_param/sun_disk_scale = 3.0
+shader_param/ground_color = Color(1, 1, 1, 1)
+shader_param/exposure = 0.1
+shader_param/worlnoise = ExtResource( "4_les07" )
+shader_param/perlworlnoise = ExtResource( "2_ttd4a" )
+shader_param/weathermap = ExtResource( "3_qt1cp" )
+
+[sub_resource type="Sky" id="Sky_m81e2"]
+sky_material = SubResource( "ShaderMaterial_jcxn0" )
+
+[resource]
+background_mode = 2
+sky = SubResource( "Sky_m81e2" )
+tonemap_mode = 3
+tonemap_white = 3.22
+fog_light_color = Color(0.713726, 0.854902, 1, 1)
+fog_light_energy = 0.31
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_emission = Color(0.596078, 0.596078, 0.596078, 1)
+volumetric_fog_anisotropy = 0.9

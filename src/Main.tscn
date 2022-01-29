@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cff5uacv07nea"]
+
+[ext_resource type="Script" path="res://Scripts/World.gd" id="1_ssex7"]
+[ext_resource type="Environment" uid="uid://d3xlckplph5ge" path="res://main_environment.tres" id="2_2665d"]
+[ext_resource type="PackedScene" uid="uid://xp5fmxaek6ye" path="res://Scenes/Plane.tscn" id="5_fmyva"]
+
+[node name="World" type="Node3D"]
+transform = Transform3D(1, 0.0003427, -0.00016891, -0.000342464, 0.999999, 0.00143352, 0.000169389, -0.00143346, 0.999999, 0, 0, 0)
+script = ExtResource( "1_ssex7" )
+
+[node name="Cloud Environment" type="WorldEnvironment" parent="."]
+environment = ExtResource( "2_2665d" )
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.864275, 0.50302, -8.74861e-08, 0.503017, -0.86427, -0.00349065, -0.00175594, 0.00301684, -0.999994, -0.620217, 0.0249968, 0.00014089)
+use_in_sky_only = true
+
+[node name="Plane" parent="." instance=ExtResource( "5_fmyva" )]
+transform = Transform3D(1, -2.78192e-10, 0, 5.68434e-13, 1, -1.16415e-09, 0, 1.16415e-09, 1, -0.0248259, 72.4932, 0.10392)
+
+[node name="Camera3D" type="Camera3D" parent="Plane"]
+transform = Transform3D(0.988422, 0.0815525, 0.127946, -0.123263, 0.923313, 0.363729, -0.0884713, -0.375289, 0.922676, 9.2941e-05, 3.60473, 7.86384)
