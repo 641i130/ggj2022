@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/blimp.obj-15ee99e007338ed336b5042a80374410.mesh"
+
+[deps]
+
+files=[ "res://.import/blimp.obj-15ee99e007338ed336b5042a80374410.mesh" ]
+
+source_file="res://blimp.obj"
+dest_files=[ "res://.import/blimp.obj-15ee99e007338ed336b5042a80374410.mesh", "res://.import/blimp.obj-15ee99e007338ed336b5042a80374410.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

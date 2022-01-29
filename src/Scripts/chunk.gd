@@ -21,7 +21,7 @@ func generate_chunk():
 	randomize()
 	noise = OpenSimplexNoise.new()
 	noise.period = 200
-	noise.octaves = 10
+	noise.octaves = 7
 	var plane_mesh = PlaneMesh.new() # Base mesh we are modifying
 	plane_mesh.size = Vector2(chunk_size,chunk_size)
 	plane_mesh.subdivide_depth = chunk_size * 0.25

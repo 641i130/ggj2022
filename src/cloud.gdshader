@@ -1,3 +1,8 @@
+/*
+	Cloud Shadow Shader by Yui Kinomoto @arlez80
+	MIT License
+*/
+ 
 shader_type spatial;
 render_mode cull_back, depth_draw_alpha_prepass, shadow_to_opacity;
 

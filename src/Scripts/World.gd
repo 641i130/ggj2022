@@ -19,6 +19,10 @@ func _process(delta):
 	clean_up_chunks()
 	reset_chunks()
 	
+	# Day Night Cycle!
+	
+
+	
 # ==================================================CHUNKS============================================
 func add_chunk(x, z):
 	var key = str(x) + "," + str(z) # Yes, keys are strings :P TODO optimize
@@ -52,7 +56,7 @@ func get_chunk(x, z):
 
 func update_chunks():
 	# Get player location
-	var player_translation = $Player.translation
+	var player_translation = $Plane.translation
 	var p_x = int(player_translation.x)/chunk_size
 	var p_z = int(player_translation.z)/chunk_size
 	
