@@ -22,7 +22,6 @@ func _ready():
 	for i in range(data_tool.get_vertex_count()):
 		var vertex = data_tool.get_vertex(i)
 		vertex.y = noise.get_noise_3d(vertex.x,vertex.y,vertex.z) * 60
-		
 		data_tool.set_vertex(i,vertex)
 		
 	for i in range(array_plane.get_surface_count()):

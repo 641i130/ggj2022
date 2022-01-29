@@ -12,16 +12,22 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "Chunk",
 "language": "GDScript",
-"path": "res://chunk.gd"
+"path": "res://Scripts/chunk.gd"
+}, {
+"base": "Spatial",
+"class": "Drop",
+"language": "GDScript",
+"path": "res://Scripts/drop.gd"
 } ]
 _global_script_class_icons={
-"Chunk": ""
+"Chunk": "",
+"Drop": ""
 }
 
 [application]
 
 config/name="GGJ2022"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
 [global]
@@ -110,4 +116,4 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 environment/default_clear_color=Color( 1, 1, 1, 1 )
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Scenes/default_env.tres"

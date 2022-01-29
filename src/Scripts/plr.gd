@@ -62,7 +62,7 @@ func _physics_process(delta):
 	#vel.y -= gravity * delta * 0.9
 	
 	# Move player!
-	vel = move_and_slide(vel, Vector3.UP)
+	vel += move_and_slide(vel, Vector3.UP)
 	
 	# Jump
 	#if Input.is_action_pressed("up"): # Pushes plane up
