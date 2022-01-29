@@ -4,9 +4,9 @@
 extends CharacterBody3D
 
 # Can't fly below this speed
-var min_flight_speed = 0
+var min_flight_speed = 1
 # Maximum airspeed
-var max_flight_speed = 30
+var max_flight_speed = 10
 # Turn rate
 var turn_speed = 0.75
 # Climb/dive rate
@@ -19,9 +19,9 @@ var throttle_delta = 1
 var acceleration = 6.0
 
 # Current speed
-var forward_speed = 0
+var forward_speed = 1
 # Throttle input speed
-var target_speed = 0
+var target_speed = 1
 
 var velocity = Vector3.ZERO
 var turn_input = 0

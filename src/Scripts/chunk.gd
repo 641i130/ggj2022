@@ -5,7 +5,7 @@ var mesh_instance
 var noise
 var x
 var z
-var chunk_size = 128
+var chunk_size = 64
 var should_remove = true
 
 func _init(noise, x, z, chunk_size):

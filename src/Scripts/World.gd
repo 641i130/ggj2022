@@ -1,6 +1,6 @@
 extends Node3D
 
-const chunk_size = 128
+const chunk_size = 64
 const chunk_amount = 16
 
 var noise
@@ -13,7 +13,7 @@ var threads = []
 const max_threads = 3
 
 # Sun values
-var xSun = 1
+var xSun = -5
 
 func _ready():
 	# Init randomization stuffs
@@ -26,17 +26,6 @@ func _process(delta):
 	update_chunks() 
 	clean_up_chunks()
 	reset_chunks()
-	
-	# Day Night Cycle!
-	
-	sunUpdate(delta)
-	
-func sunUpdate(delta):
-	# Update sun rotation
-	xSun+=delta
-	$Sun.set_rotation(Vector3(xSun,0,0))
-	# Randomize clouds? as time progress
-	
 	
 
 # ==================================================CHUNKS============================================

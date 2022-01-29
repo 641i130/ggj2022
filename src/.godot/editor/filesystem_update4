@@ -3,6 +3,5 @@ res://Scenes/Plane.tscn
 res://Scripts/World.gd
 res://Scripts/chunk.gd
 res://Scripts/plane.gd
-res://cloud.material
+res://clouds.gdshader
 res://main_environment.tres
-res://newcloud.gdshader

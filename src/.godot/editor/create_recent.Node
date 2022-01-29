@@ -1,3 +1,6 @@
+AnimationPlayer
+DirectionalLight3D
+OmniLight3D
 CharacterBody3D
 VehicleBody3D
 Node3D
