@@ -28,6 +28,21 @@ Global game jam 2022!!
 - Music
   - Place-holders
   - Day/Night separate tracks
+- Rain Collection:
+  - Rain sound effect
+  - Collect rain to unlock 
+    - Trigger day cycle
+    - rain is duality to calm weather
+  - Rain collector ship
+    - Cup arm to collect rain?
+    - Vacuum effect to get rain mesh particles
+- Rain object:
+  - Multiple capsules
+    - tiny
+  - random x & z coords across 
+    - Spawn in chunks yeee
+  - Noisemap?
+    - Random gen 
 
 
 
