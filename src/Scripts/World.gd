@@ -1,7 +1,8 @@
 extends Node3D
 
 const chunk_size = 64
-const chunk_amount = 64
+const init_chunk_amount = 16
+const chunk_amount = 8
 const unload_dis = chunk_size*64
 
 var noise
@@ -11,7 +12,7 @@ var thread
 
 # Multithreading!
 var threads = []
-const max_threads = 8
+const max_threads = 16
 
 # Rings
 var rings
@@ -26,8 +27,8 @@ func _ready():
 	var player_translation = $Plane.position
 	var p_x = int(player_translation.x)/chunk_size
 	var p_z = int(player_translation.z)/chunk_size
-	for x in range(p_x - chunk_amount * 0.5, p_x + chunk_amount * 0.5):
-		for z in range(p_z - chunk_amount * 0.5, p_z + chunk_amount * 0.5):
+	for x in range(p_x - init_chunk_amount * 0.5, p_x + init_chunk_amount * 0.5):
+		for z in range(p_z - init_chunk_amount * 0.5, p_z + init_chunk_amount * 0.5):
 			var key = str(x) + "," + str(z) # Yes, keys are strings :P TODO optimize
 			var chunk = Chunk.new(noise, x*chunk_size, z*chunk_size, chunk_size) # Gen chunk
 			chunk.position = Vector3(x*chunk_size, 0, z*chunk_size) # Set chunk position
