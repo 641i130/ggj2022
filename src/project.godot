@@ -27,8 +27,8 @@ _global_script_class_icons={
 [application]
 
 config/name="ggj2022"
-config/description="A short educational sample showing one way of using sky shaders to render real time volumetric cloudscapes"
-run/main_scene="res://Main.tscn"
+config/description="Ring collecting game with fancy clouds and a weird blimp."
+run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0")
 
