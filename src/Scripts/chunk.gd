@@ -14,7 +14,6 @@ func _init(noise, x, z, chunk_size):
 	self.z = z
 	self.chunk_size
 	
-	
 func _ready():
 	generate_chunk()
 
