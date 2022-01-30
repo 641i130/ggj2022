@@ -1,9 +1,9 @@
-[gd_resource type="Environment" load_steps=7 format=3 uid="uid://d3xlckplph5ge"]
+[gd_resource type="Environment" load_steps=7 format=3 uid="uid://be4py2ut45u7x"]
 
-[ext_resource type="Shader" path="res://clouds.gdshader" id="1_a5apq"]
-[ext_resource type="StreamTexture3D" uid="uid://capq7reqro17i" path="res://perlworlnoise.tga" id="2_ttd4a"]
-[ext_resource type="Texture2D" uid="uid://dfkye0uf4i6w1" path="res://weather.bmp" id="3_qt1cp"]
-[ext_resource type="StreamTexture3D" uid="uid://c4dp6g6gouj2b" path="res://worlnoise.bmp" id="4_les07"]
+[ext_resource type="Shader" path="res://Assets/clouds.gdshader" id="1_a5apq"]
+[ext_resource type="StreamTexture3D" uid="uid://capq7reqro17i" path="res://Assets/perlworlnoise.tga" id="2_ttd4a"]
+[ext_resource type="Texture2D" uid="uid://dfkye0uf4i6w1" path="res://Assets/weather.bmp" id="3_qt1cp"]
+[ext_resource type="StreamTexture3D" uid="uid://c4dp6g6gouj2b" path="res://Assets/worlnoise.bmp" id="4_les07"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aipeb"]
 shader = ExtResource( "1_a5apq" )
@@ -33,7 +33,7 @@ sky = SubResource( "Sky_jyae0" )
 tonemap_mode = 2
 tonemap_white = 3.22
 fog_light_color = Color(0.713726, 0.854902, 1, 1)
-fog_light_energy = 0.31
+fog_aerial_perspective = 0.632
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_anisotropy = 0.9

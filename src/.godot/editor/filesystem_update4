@@ -1,7 +1,5 @@
 res://Main.tscn
-res://Scenes/Plane.tscn
+res://Scenes/main_environment.tres
+res://Scenes/ring.tscn
+res://Scripts/RingMaker.gd
 res://Scripts/World.gd
-res://Scripts/chunk.gd
-res://Scripts/plane.gd
-res://clouds.gdshader
-res://main_environment.tres

@@ -3,8 +3,8 @@
 importer="texture"
 type="StreamTexture2D"
 uid="uid://dfkye0uf4i6w1"
-path.s3tc="res://.godot/imported/weather.bmp-61a8d6802211599c48f9751ba282380d.s3tc.stex"
-path.etc2="res://.godot/imported/weather.bmp-61a8d6802211599c48f9751ba282380d.etc2.stex"
+path.s3tc="res://.godot/imported/weather.bmp-77e903078d374842bb6049ebd7eb59db.s3tc.stex"
+path.etc2="res://.godot/imported/weather.bmp-77e903078d374842bb6049ebd7eb59db.etc2.stex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://weather.bmp"
-dest_files=["res://.godot/imported/weather.bmp-61a8d6802211599c48f9751ba282380d.s3tc.stex", "res://.godot/imported/weather.bmp-61a8d6802211599c48f9751ba282380d.etc2.stex"]
+source_file="res://Assets/weather.bmp"
+dest_files=["res://.godot/imported/weather.bmp-77e903078d374842bb6049ebd7eb59db.s3tc.stex", "res://.godot/imported/weather.bmp-77e903078d374842bb6049ebd7eb59db.etc2.stex"]
 
 [params]
 

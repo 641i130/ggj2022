@@ -6,7 +6,7 @@ extends CharacterBody3D
 # Can't fly below this speed
 var min_flight_speed = 1
 # Maximum airspeed
-var max_flight_speed = 10
+var max_flight_speed = 5
 # Turn rate
 var turn_speed = 0.75
 # Climb/dive rate
@@ -30,8 +30,6 @@ var pitch_input = 0
 
 func _ready():
 	pass
-	#DebugOverlay.stats.add_property(self, "grounded", "")
-	#DebugOverlay.stats.add_property(self, "forward_speed", "round")
 	
 func _physics_process(delta):
 	get_input(delta)

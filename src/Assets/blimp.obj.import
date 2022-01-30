@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://64yw3lpv2f7b"
+path="res://.godot/imported/blimp.obj-6188ea60350f823bb630e496e735c87a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/blimp.obj-6188ea60350f823bb630e496e735c87a.mesh"]
+
+source_file="res://Assets/blimp.obj"
+dest_files=["res://.godot/imported/blimp.obj-6188ea60350f823bb630e496e735c87a.mesh", "res://.godot/imported/blimp.obj-6188ea60350f823bb630e496e735c87a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

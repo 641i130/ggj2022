@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xp5fmxaek6ye"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://Scripts/plane.gd" id="1"]
-[ext_resource type="ArrayMesh" uid="uid://64yw3lpv2f7b" path="res://blimp.obj" id="3"]
-[ext_resource type="Material" path="res://Blimp.material" id="4"]
+[ext_resource type="ArrayMesh" path="res://Assets/blimp.obj" id="3"]
+[ext_resource type="Material" path="res://Assets/Blimp.material" id="4"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.236773

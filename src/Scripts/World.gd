@@ -10,23 +10,27 @@ var thread
 
 # Multithreading!
 var threads = []
-const max_threads = 3
+const max_threads = 8
 
-# Sun values
-var xSun = -5
+# Rings
+var rings
 
 func _ready():
 	# Init randomization stuffs
 	# Enable threading for faster loadtimes!
 	for i in max_threads:
 		threads.append(Thread.new())
+	# Generate rings
+	rings = RingMaker.new(get_tree().get_root())
 
 func _process(delta):
 	# Chunks
 	update_chunks() 
 	clean_up_chunks()
 	reset_chunks()
-	
+
+	# Rings
+	rings.spawnRings($Plane.position) # Tell ring maker player pos
 
 # ==================================================CHUNKS============================================
 func add_chunk(x, z):
@@ -80,10 +84,8 @@ func clean_up_chunks():
 		if chunk.should_remove:
 			chunk.queue_free()
 			chunks.erase(key)
-		
-	
+
 func reset_chunks():
 	for key in chunks:
 		chunks[key].should_remove = true
-
 # ==================================================CHUNKS============================================

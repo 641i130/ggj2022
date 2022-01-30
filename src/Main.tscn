@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cff5uacv07nea"]
+[gd_scene load_steps=6 format=3 uid="uid://h5hpkfag388g"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_ssex7"]
-[ext_resource type="Environment" uid="uid://d3xlckplph5ge" path="res://main_environment.tres" id="2_2665d"]
-[ext_resource type="PackedScene" uid="uid://xp5fmxaek6ye" path="res://Scenes/Plane.tscn" id="5_fmyva"]
+[ext_resource type="Environment" uid="uid://be4py2ut45u7x" path="res://Scenes/main_environment.tres" id="2_2665d"]
+[ext_resource type="PackedScene" path="res://Scenes/Plane.tscn" id="5_fmyva"]
 
 [sub_resource type="Animation" id="Animation_2vly7"]
 resource_name = "DayNightCycle"
@@ -44,7 +44,7 @@ script = ExtResource( "1_ssex7" )
 environment = ExtResource( "2_2665d" )
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, -8.89485e-08, -8.74095e-08, -8.74095e-08, -0.999848, 0.0174524, -8.89485e-08, -0.0174524, -0.999848, 0, 0, 0)
+transform = Transform3D(1, 2.57943e-06, 2.5348e-06, 2.5348e-06, -0.999847, 0.0174524, 2.57943e-06, -0.0174524, -0.999848, 0, 0, 0)
 use_in_sky_only = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sun"]

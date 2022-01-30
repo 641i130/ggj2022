@@ -1,6 +1,13 @@
+Area3D
+CollisionShape3D
+MeshInstance3D
+Node3D
+CPUParticles3D
+GPUParticles3D
+GPUParticles2D
+CPUParticles2D
 AnimationPlayer
 DirectionalLight3D
 OmniLight3D
 CharacterBody3D
 VehicleBody3D
-Node3D
