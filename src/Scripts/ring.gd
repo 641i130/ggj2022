@@ -6,7 +6,7 @@ var speed
 var move_range
 var move_type
 var move_dir
-
+var thread
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.dir = 1.0
@@ -28,9 +28,8 @@ func _physics_process(delta):
 			move_dir *= -1.0
 	
 func _on_ring_body_entered(body):
-	print("COLLIDED")
-	# trigger pick up sound...
-	$RingCollect.playing = true
-	# trigger clean up (wait til body exits?)
+	$Mesh.hide()
+	$RingSFX.play()
+
+func _on_ring_sfx_finished():
 	self.queue_free()
-	#

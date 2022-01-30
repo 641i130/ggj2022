@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_ssex7"]
 [ext_resource type="Environment" uid="uid://be4py2ut45u7x" path="res://Scenes/main_environment.tres" id="2_2665d"]
 [ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="4_wvqgg"]
-[ext_resource type="PackedScene" path="res://Scenes/Plane.tscn" id="5_fmyva"]
+[ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="5_fmyva"]
 
 [sub_resource type="Animation" id="Animation_2vly7"]
 resource_name = "DayNightCycle"

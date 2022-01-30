@@ -2,7 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://qu5blkvdpbth" path="res://Assets/ring.obj" id="1_qp6gj"]
 [ext_resource type="Script" path="res://Scripts/ring.gd" id="1_t1lj1"]
-[ext_resource type="AudioStream" uid="uid://bo3q1ivfsvuvg" path="res://Assets/placeholder_ring.ogg" id="3_3362g"]
+[ext_resource type="AudioStream" uid="uid://bs6ns623oungc" path="res://Assets/ring_collect.wav" id="3_t3iaq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_j3b6w"]
 radius = 1.04112
@@ -16,11 +16,13 @@ script = ExtResource( "1_t1lj1" )
 transform = Transform3D(0, -3, 0, 3, 0, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource( "CylinderShape3D_j3b6w" )
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = ExtResource( "1_qp6gj" )
 skeleton = NodePath("")
 
-[node name="RingCollect" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( "3_3362g" )
+[node name="RingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "3_t3iaq" )
 
 [connection signal="body_entered" from="." to="." method="_on_ring_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_ring_body_exited"]
+[connection signal="finished" from="RingSFX" to="." method="_on_ring_sfx_finished"]
