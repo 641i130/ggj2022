@@ -8,7 +8,7 @@ const ring_max_height = 50
 const ring_spawn_chance = 10
 
 var ringSpawnRadius
-var rings = []
+var rings = {}
 var rng
 var ringScene
 var nodeRoot
@@ -26,7 +26,7 @@ func spawnRings(pos):
 	var p_z = int(pos.z)
 	for x in range(p_x - ringSpawnRadius, p_x + ringSpawnRadius, ringSpacing):
 		for z in range(p_z - ringSpawnRadius, p_z + ringSpawnRadius, ringSpacing):
-			if len(rings) < ring_max:
+			if rings.size() < ring_max:
 				if (self.rng.randi() % ring_spawn_chance == 0):
 					var y = self.rng.randi_range(ring_min_height, ring_max_height)
 					self.placeRing(x,y,z)
@@ -37,6 +37,8 @@ func placeRing(x,y,z):
 	var ring = ringScene.instantiate()
 	ring.position = (Vector3(x,y,z))
 	ring.rotation.y = self.rng.randi_range(0,180)
-	print(ring.position)
-	self.rings.append(ring)
-	self.nodeRoot.add_child(ring)
+	#print(ring.position)
+	var key = str(x) + "," + str(y) + "," + str(z) # Yes, keys are strings :P TODO optimize
+	if not self.rings.has(key):
+		self.rings[key] = ring
+		self.nodeRoot.add_child(ring)
