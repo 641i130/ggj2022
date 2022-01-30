@@ -1,20 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://h5hpkfag388g"]
+[gd_scene load_steps=7 format=3 uid="uid://ccce13axhmayj"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_plp0e"]
 [ext_resource type="Environment" uid="uid://be4py2ut45u7x" path="res://Scenes/main_environment.tres" id="2_h4v1b"]
-[ext_resource type="Script" path="res://Scenes/daytime.gd" id="3_i7knn"]
+[ext_resource type="Script" path="res://Scripts/daytime.gd" id="3_i7knn"]
 [ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="3_x60ho"]
-[ext_resource type="FontData" uid="uid://dq78f0y210okb" path="res://Assets/CloudyCloud-nREq4.otf" id="4_hclwx"]
-[ext_resource type="Script" path="res://Count.gd" id="5_5sbjn"]
 [ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="6_n4tb4"]
 [ext_resource type="AudioStream" uid="uid://dtk5j6ld7bhtu" path="res://Assets/day.ogg" id="7_q7wsd"]
-
-[sub_resource type="Font" id="Font_yeu2m"]
-data/0 = ExtResource( "4_hclwx" )
-
-[sub_resource type="Theme" id="Theme_xke0m"]
-default_font = SubResource( "Font_yeu2m" )
-/fonts/e = SubResource( "Font_yeu2m" )
 
 [node name="Day" type="Node3D"]
 transform = Transform3D(1, 0.0003427, -0.00016891, -0.000342464, 0.999999, 0.00143352, 0.000169389, -0.00143346, 0.999999, 0, 0, 0)
@@ -28,27 +19,6 @@ transform = Transform3D(1, 2.75614e-06, 2.52554e-06, 2.52553e-06, -0.996194, 0.0
 use_in_sky_only = true
 script = ExtResource( "3_i7knn" )
 
-[node name="Plane" parent="." instance=ExtResource( "3_x60ho" )]
-transform = Transform3D(1, -3.07267e-10, 0, 5.68434e-13, 1, -1.28057e-09, 0, 1.28057e-09, 1, -1.01682e-09, 30, 3.72529e-09)
-
-[node name="Camera3D" type="Camera3D" parent="Plane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
-
-[node name="Count" type="RichTextLabel" parent="Plane/Camera3D"]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 757.0
-offset_bottom = 70.0
-rect_clip_content = false
-theme = SubResource( "Theme_xke0m" )
-theme_override_font_sizes/normal_font_size = 100
-text = "placeholder"
-scroll_active = false
-script = ExtResource( "5_5sbjn" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "6_n4tb4" )
 autoplay = true
@@ -56,3 +26,6 @@ autoplay = true
 [node name="DayTrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "7_q7wsd" )
 autoplay = true
+
+[node name="Plane" parent="." instance=ExtResource( "3_x60ho" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)
