@@ -15,12 +15,18 @@ _global_script_classes=[{
 "path": "res://Scripts/chunk.gd"
 }, {
 "base": "Node3D",
+"class": &"Cycle",
+"language": &"GDScript",
+"path": "res://Scripts/cycle.gd"
+}, {
+"base": "Node3D",
 "class": &"RingMaker",
 "language": &"GDScript",
 "path": "res://Scripts/RingMaker.gd"
 }]
 _global_script_class_icons={
 "Chunk": "",
+"Cycle": "",
 "RingMaker": ""
 }
 
