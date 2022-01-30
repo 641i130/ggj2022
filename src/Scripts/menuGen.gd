@@ -47,15 +47,13 @@ func _ready():
 	# RINGS
 	rings = RingMaker.new(get_tree().get_root(), chunk_size)
 	rings.spawnRings($Plane.position) # Tell ring maker player pos
+	$Camera/MenuButton.connect("pressed",_button_pressed)
 
 func _process(delta):
-	# Chunks
-	update_chunks() 
-	clean_up_chunks()
-	reset_chunks()
+	pass
 
-	# Rings
-	
+func _button_pressed():
+	get_tree().change_scene("res://Scenes/Night.tscn")
 
 # ==================================================CHUNKS============================================
 func add_chunk(x, z):
@@ -123,7 +121,3 @@ func reset_chunks():
 
 # ==================================================CHUNKS============================================
 
-
-func _on_menu_button_gui_input(event):
-	# On button press?
-	get_tree().change_scene("res://Scenes/Night.tscn")
