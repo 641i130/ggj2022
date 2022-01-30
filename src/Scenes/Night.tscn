@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://h5hpkfag388g"]
+[gd_scene load_steps=13 format=3 uid="uid://h5hpkfag388g"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_plp0e"]
-[ext_resource type="Environment" uid="uid://be4py2ut45u7x" path="res://Scenes/main_environment.tres" id="2_h4v1b"]
-[ext_resource type="Script" path="res://Scenes/time.gd" id="3_x0hxh"]
 [ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="3_x60ho"]
 [ext_resource type="FontData" uid="uid://dq78f0y210okb" path="res://Assets/CloudyCloud-nREq4.otf" id="4_hclwx"]
 [ext_resource type="Script" path="res://Count.gd" id="5_5sbjn"]
 [ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="6_n4tb4"]
-[ext_resource type="AudioStream" uid="uid://dtk5j6ld7bhtu" path="res://Assets/day.ogg" id="7_q7wsd"]
+[ext_resource type="AudioStream" uid="uid://cwxs0yjdmrvnb" path="res://Assets/night.ogg" id="7_du5if"]
+[ext_resource type="Texture2D" uid="uid://bypwrbjt0puue" path="res://Assets/best.jpg" id="8_hkp0e"]
 
 [sub_resource type="Font" id="Font_yeu2m"]
 data/0 = ExtResource( "4_hclwx" )
@@ -16,17 +15,19 @@ data/0 = ExtResource( "4_hclwx" )
 default_font = SubResource( "Font_yeu2m" )
 /fonts/e = SubResource( "Font_yeu2m" )
 
-[node name="Day" type="Node3D"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1gm8p"]
+panorama = ExtResource( "8_hkp0e" )
+
+[sub_resource type="Sky" id="Sky_11n7k"]
+sky_material = SubResource( "PanoramaSkyMaterial_1gm8p" )
+
+[sub_resource type="Environment" id="Environment_wd2wd"]
+background_mode = 2
+sky = SubResource( "Sky_11n7k" )
+
+[node name="Night" type="Node3D"]
 transform = Transform3D(1, 0.0003427, -0.00016891, -0.000342464, 0.999999, 0.00143352, 0.000169389, -0.00143346, 0.999999, 0, 0, 0)
 script = ExtResource( "1_plp0e" )
-
-[node name="Cloud Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource( "2_h4v1b" )
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 2.75614e-06, 2.52554e-06, 2.52553e-06, -0.996194, 0.0871558, 2.75614e-06, -0.0871557, -0.996195, 0, 0, 0)
-use_in_sky_only = true
-script = ExtResource( "3_x0hxh" )
 
 [node name="Plane" parent="." instance=ExtResource( "3_x60ho" )]
 transform = Transform3D(1, -3.07267e-10, 0, 5.68434e-13, 1, -1.28057e-09, 0, 1.28057e-09, 1, -1.01682e-09, 30, 3.72529e-09)
@@ -53,6 +54,13 @@ __meta__ = {
 stream = ExtResource( "6_n4tb4" )
 autoplay = true
 
-[node name="DayTrack" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "7_q7wsd" )
+[node name="NightTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "7_du5if" )
 autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( "Environment_wd2wd" )
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -0.000411069, -0.000206898, 8.62387e-05, -0.274245, 0.96166, -0.000452037, -0.96166, -0.274245, -0.0154414, 45.0899, 0.0646373)
+directional_shadow_mode = 0
