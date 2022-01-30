@@ -17,7 +17,7 @@ func _ready():
 	self.initialize()
 
 func initialize():
-	Player.SetMode(Player.Mode.NIGHT)
+	Player.SetMode(Player.Mode.DAY)
 	self.rotation = Vector3(cycle_rot_start,180,180)
 	self.current_time = 0
 
@@ -42,5 +42,4 @@ func _process(delta):
 func CycleComplete():
 	#Player.CycleComplete()
 	# must be called by nightime/daytime
-	get_tree().change_scene("res://Scenes/Day.tscn")	
-	#self.initialize()
+	self.initialize()
