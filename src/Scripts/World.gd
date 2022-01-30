@@ -41,7 +41,7 @@ func _ready():
 			chunks[key] = chunk #PUT into ready chunks!
 	"""
 	# RINGS
-	rings = RingMaker.new(get_tree().get_root())
+	rings = RingMaker.new(get_tree().get_root(), chunk_size)
 
 func _process(delta):
 	# Chunks
