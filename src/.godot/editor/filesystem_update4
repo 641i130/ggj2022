@@ -1,5 +1,4 @@
 res://Main.tscn
 res://Scenes/main_environment.tres
 res://Scenes/ring.tscn
-res://Scripts/RingMaker.gd
 res://Scripts/World.gd

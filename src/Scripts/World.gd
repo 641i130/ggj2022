@@ -1,7 +1,8 @@
 extends Node3D
 
 const chunk_size = 64
-const chunk_amount = 16
+const chunk_amount = 64
+const unload_dis = chunk_size*64
 
 var noise
 var chunks = {}
@@ -20,7 +21,19 @@ func _ready():
 	# Enable threading for faster loadtimes!
 	for i in max_threads:
 		threads.append(Thread.new())
-	# Generate rings
+		
+	# Generate rings in a very cursed way
+	var player_translation = $Plane.position
+	var p_x = int(player_translation.x)/chunk_size
+	var p_z = int(player_translation.z)/chunk_size
+	for x in range(p_x - chunk_amount * 0.5, p_x + chunk_amount * 0.5):
+		for z in range(p_z - chunk_amount * 0.5, p_z + chunk_amount * 0.5):
+			var key = str(x) + "," + str(z) # Yes, keys are strings :P TODO optimize
+			var chunk = Chunk.new(noise, x*chunk_size, z*chunk_size, chunk_size) # Gen chunk
+			chunk.position = Vector3(x*chunk_size, 0, z*chunk_size) # Set chunk position
+			add_child(chunk)
+			chunks[key] = chunk #PUT into ready chunks!
+	# RINGS
 	rings = RingMaker.new(get_tree().get_root())
 
 func _process(delta):
@@ -86,6 +99,13 @@ func clean_up_chunks():
 			chunks.erase(key)
 
 func reset_chunks():
+	var player_translation = $Plane.position
+	var p_x = int(player_translation.x)/chunk_size
+	var p_z = int(player_translation.z)/chunk_size
 	for key in chunks:
-		chunks[key].should_remove = true
+		var chk = chunks[key]
+		var dis = $Plane.position.distance_to(Vector3(chk.x,$Plane.position.y,chk.z))
+		if dis >= unload_dis:
+			chk.should_remove = true
+
 # ==================================================CHUNKS============================================

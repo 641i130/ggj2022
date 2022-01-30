@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://byqaf2rjf8fs4"
+path="res://.godot/imported/ambience.ogg-7b280a833f6d7ee7518b0db8c859a359.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/ambience.ogg"
+dest_files=["res://.godot/imported/ambience.ogg-7b280a833f6d7ee7518b0db8c859a359.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

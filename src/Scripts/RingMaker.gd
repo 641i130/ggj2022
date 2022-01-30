@@ -1,9 +1,9 @@
 extends Node3D
 class_name RingMaker
 
-const ring_max = 100
+const ring_max = 1000
 const ringSpacing = 10
-const ringSpawnRadius = 20
+const ringSpawnRadius = 50
 var rings = []
 var rng
 var ringScene
@@ -25,7 +25,7 @@ func spawnRings(pos):
 			if len(rings) < ring_max:
 				if (self.rng.randi() % 10 == 0):
 					var y = self.rng.randi_range(20,40)
-					self.placeRing(x*ringSpawnRadius,y,z*ringSpawnRadius)
+					self.placeRing(x*ringSpacing,y,z*ringSpacing)
 			else:
 				break
 

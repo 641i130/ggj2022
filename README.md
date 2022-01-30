@@ -66,5 +66,17 @@ Global game jam 2022!!
     - Icons ?
     - hud
 
+RINGS SPAWN! 
 
+- Movement [1]
+  - Smooth
+  - Clean
+- HUD [4]
+  - Ring Counter
+- Threading [5]
+  - Spawning everything!
+- Ceiling floor collisons [2]
+  - Limiting player movement!
+- Fire ring shader [6]
+- Change shader uniforms (d/n cycle) [3]
 
