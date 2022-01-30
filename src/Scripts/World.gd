@@ -10,7 +10,6 @@ var unload_dis
 #const chunk_amount = 64
 #const unload_dis = chunk_size*8
 
-
 var noise
 var chunks = {}
 var unready_chunks = {}
