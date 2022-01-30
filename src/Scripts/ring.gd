@@ -29,6 +29,7 @@ func _physics_process(delta):
 	
 func _on_ring_body_entered(body):
 	$Mesh.hide()
+	$RingSFX.pitch_scale = randf_range(0.7,1.7)
 	$RingSFX.play()
 
 func _on_ring_sfx_finished():

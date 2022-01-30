@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b52exrn3mgo2e"]
+[gd_scene load_steps=6 format=3 uid="uid://b52exrn3mgo2e"]
 
 [ext_resource type="Script" path="res://Scripts/plane.gd" id="1"]
 [ext_resource type="ArrayMesh" uid="uid://64yw3lpv2f7b" path="res://Assets/blimp.obj" id="3"]
 [ext_resource type="Material" path="res://Assets/Blimp.material" id="4"]
+[ext_resource type="AudioStream" uid="uid://cs8tumvk1hbpi" path="res://Assets/blimp.wav" id="4_07baa"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.236773
@@ -20,3 +21,6 @@ material = ExtResource( "4" )
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, 0, 0, -1.725, -8.74228e-08, -1, 0, 0, 0, 0)
 shape = SubResource( "1" )
+
+[node name="Woosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "4_07baa" )
