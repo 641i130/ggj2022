@@ -36,6 +36,12 @@ func _physics_process(delta):
 	# For turn input (left and right) rotate vector DOWN based off of that
 	transform.basis = transform.basis.rotated(Vector3.DOWN, turn_input * turn_speed * delta)
 	
+	#when using normalized basis.x ==> camera rotates objective(?) -- moves liek crazy
+	#transform.basis = transform.basis.rotated(transform.basis.x.normalized(), pitch_input * pitch_speed * delta)
+	## *********************
+	## todo:: adjust speed (velocity based off clamped mesh rotation values
+	## *********************
+	
 	$Mesh.rotation.x = clamp(lerp($Mesh.rotation.x, turn_input, level_speed * delta),-0.5,0.5)
 	$Mesh.rotation.z = clamp(lerp($Mesh.rotation.z, pitch_input, level_speed * delta),-0.5,0.5)
 	# Accelerate/decelerate

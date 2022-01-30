@@ -4,7 +4,8 @@ const chunk_size = 64
 
 const init_chunk_amount = 16
 const chunk_amount = 8
-const unload_dis = chunk_size*64
+#const chunk_render_count = 64
+var unload_dis
 
 #const chunk_amount = 64
 #const unload_dis = chunk_size*8
@@ -24,6 +25,8 @@ var rings
 
 func _ready():
 	# Init randomization stuffs
+	self.unload_dis = chunk_size * init_chunk_amount
+	
 	# Enable threading for faster loadtimes!
 	for i in max_threads:
 		threads.append(Thread.new())
@@ -106,13 +109,14 @@ func clean_up_chunks():
 			chunks.erase(key)
 
 func reset_chunks():
-	var player_translation = $Plane.position
-	var p_x = int(player_translation.x)/chunk_size
-	var p_z = int(player_translation.z)/chunk_size
+#	var player_translation = $Plane.position
+#	var p_x = int(player_translation.x)/chunk_size
+#	var p_z = int(player_translation.z)/chunk_size
 	for key in chunks:
 		var chk = chunks[key]
 		var dis = $Plane.position.distance_to(Vector3(chk.x,$Plane.position.y,chk.z))
 		if dis >= unload_dis:
+			#print("unloading chunk")
 			chk.should_remove = true
 
 # ==================================================CHUNKS============================================

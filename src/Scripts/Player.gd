@@ -17,7 +17,7 @@ func _ready():
 	self.day_cycle_total_time = 30 # player gets atleast 10secs in day cycle
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 ##may require knowing which cycle finsihed if reused

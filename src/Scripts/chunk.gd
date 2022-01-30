@@ -5,14 +5,14 @@ var mesh_instance
 var noise
 var x
 var z
-var chunk_size = 64
+var chunk_size
 var should_remove = true
 
-func _init(noise, x, z, chunk_size):
-	self.noise = noise
-	self.x = x
-	self.z = z
-	self.chunk_size
+func _init(_noise, _x, _z, _chunk_size):
+	self.noise = _noise
+	self.x = _x
+	self.z = _z
+	self.chunk_size = _chunk_size
 	
 func _ready():
 	generate_chunk()
@@ -51,7 +51,7 @@ func generate_chunk():
 	surface_tool.create_from(array_plane,0)
 	surface_tool.generate_normals()
 	
-	var mesh_instance = MeshInstance3D.new()
+	self.mesh_instance = MeshInstance3D.new()
 	mesh_instance.mesh = surface_tool.commit()
 	
-	add_child(mesh_instance)
+	add_child(self.mesh_instance)
