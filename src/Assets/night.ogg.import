@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://cwxs0yjdmrvnb"
+path="res://.godot/imported/night.ogg-b8e7134afff142c84cb3cbe8d1596e65.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/night.ogg"
+dest_files=["res://.godot/imported/night.ogg-b8e7134afff142c84cb3cbe8d1596e65.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
