@@ -32,6 +32,10 @@ run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0")
 
+[autoload]
+
+Player="*res://Scripts/Player.gd"
+
 [debug]
 
 settings/stdout/print_fps=true
