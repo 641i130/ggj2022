@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://h5hpkfag388g"]
+[gd_scene load_steps=12 format=3 uid="uid://h5hpkfag388g"]
 
-[ext_resource type="Script" path="res://Scripts/World.gd" id="1_ssex7"]
-[ext_resource type="Environment" uid="uid://be4py2ut45u7x" path="res://Scenes/main_environment.tres" id="2_2665d"]
-[ext_resource type="FontData" uid="uid://dq78f0y210okb" path="res://Assets/CloudyCloud-nREq4.otf" id="4_s1aqs"]
-[ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="4_wvqgg"]
-[ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="5_fmyva"]
-[ext_resource type="Script" path="res://Count.gd" id="5_j5w1w"]
+[ext_resource type="Script" path="res://Scripts/World.gd" id="1_plp0e"]
+[ext_resource type="Environment" uid="uid://be4py2ut45u7x" path="res://Scenes/main_environment.tres" id="2_h4v1b"]
+[ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="3_x60ho"]
+[ext_resource type="FontData" uid="uid://dq78f0y210okb" path="res://Assets/CloudyCloud-nREq4.otf" id="4_hclwx"]
+[ext_resource type="Script" path="res://Count.gd" id="5_5sbjn"]
+[ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="6_n4tb4"]
+[ext_resource type="AudioStream" uid="uid://dtk5j6ld7bhtu" path="res://Assets/day.ogg" id="7_q7wsd"]
 
 [sub_resource type="Animation" id="Animation_2vly7"]
 resource_name = "DayNightCycle"
@@ -40,18 +41,18 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Font" id="Font_yeu2m"]
-data/0 = ExtResource( "4_s1aqs" )
+data/0 = ExtResource( "4_hclwx" )
 
 [sub_resource type="Theme" id="Theme_xke0m"]
 default_font = SubResource( "Font_yeu2m" )
 /fonts/e = SubResource( "Font_yeu2m" )
 
-[node name="World" type="Node3D"]
+[node name="Day" type="Node3D"]
 transform = Transform3D(1, 0.0003427, -0.00016891, -0.000342464, 0.999999, 0.00143352, 0.000169389, -0.00143346, 0.999999, 0, 0, 0)
-script = ExtResource( "1_ssex7" )
+script = ExtResource( "1_plp0e" )
 
 [node name="Cloud Environment" type="WorldEnvironment" parent="."]
-environment = ExtResource( "2_2665d" )
+environment = ExtResource( "2_h4v1b" )
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 2.57942e-06, 2.5348e-06, 2.5348e-06, -0.999847, 0.0174524, 2.57943e-06, -0.0174524, -0.999848, 0, 0, 0)
@@ -62,7 +63,7 @@ autoplay = "DayNightCycle"
 anims/DayNightCycle = SubResource( "Animation_2vly7" )
 anims/RESET = SubResource( "Animation_46qbj" )
 
-[node name="Plane" parent="." instance=ExtResource( "5_fmyva" )]
+[node name="Plane" parent="." instance=ExtResource( "3_x60ho" )]
 transform = Transform3D(1, -3.07267e-10, 0, 5.68434e-13, 1, -1.28057e-09, 0, 1.28057e-09, 1, -1.01682e-09, 30, 3.72529e-09)
 
 [node name="Camera3D" type="Camera3D" parent="Plane"]
@@ -78,11 +79,15 @@ theme = SubResource( "Theme_xke0m" )
 theme_override_font_sizes/normal_font_size = 100
 text = "placeholder"
 scroll_active = false
-script = ExtResource( "5_j5w1w" )
+script = ExtResource( "5_5sbjn" )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "4_wvqgg" )
+stream = ExtResource( "6_n4tb4" )
+autoplay = true
+
+[node name="DayTrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "7_q7wsd" )
 autoplay = true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://dtk5j6ld7bhtu"
+path="res://.godot/imported/day.ogg-8ad816986948f01debb81586a4485bc4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/day.ogg"
+dest_files=["res://.godot/imported/day.ogg-8ad816986948f01debb81586a4485bc4.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
