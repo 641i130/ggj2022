@@ -1,4 +1,6 @@
+res://Assets/clouds.gdshader
 res://Main.tscn
 res://Scenes/main_environment.tres
 res://Scenes/ring.tscn
 res://Scripts/World.gd
+res://Scripts/plane.gd

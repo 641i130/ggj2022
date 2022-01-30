@@ -2,7 +2,7 @@ extends Node3D
 
 const chunk_size = 64
 const chunk_amount = 64
-const unload_dis = chunk_size*64
+const unload_dis = chunk_size*8
 
 var noise
 var chunks = {}
@@ -21,7 +21,7 @@ func _ready():
 	# Enable threading for faster loadtimes!
 	for i in max_threads:
 		threads.append(Thread.new())
-		
+	"""
 	# Generate rings in a very cursed way
 	var player_translation = $Plane.position
 	var p_x = int(player_translation.x)/chunk_size
@@ -33,6 +33,7 @@ func _ready():
 			chunk.position = Vector3(x*chunk_size, 0, z*chunk_size) # Set chunk position
 			add_child(chunk)
 			chunks[key] = chunk #PUT into ready chunks!
+	"""
 	# RINGS
 	rings = RingMaker.new(get_tree().get_root())
 
