@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://h5hpkfag388g"]
+[gd_scene load_steps=11 format=3 uid="uid://h5hpkfag388g"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_ssex7"]
 [ext_resource type="Environment" uid="uid://be4py2ut45u7x" path="res://Scenes/main_environment.tres" id="2_2665d"]
+[ext_resource type="FontData" uid="uid://dq78f0y210okb" path="res://Assets/CloudyCloud-nREq4.otf" id="4_s1aqs"]
 [ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="4_wvqgg"]
 [ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="5_fmyva"]
+[ext_resource type="Script" path="res://Count.gd" id="5_j5w1w"]
 
 [sub_resource type="Animation" id="Animation_2vly7"]
 resource_name = "DayNightCycle"
@@ -37,6 +39,13 @@ tracks/0/keys = {
 "values": [Vector3(-0.0174533, 3.14159, 3.14159)]
 }
 
+[sub_resource type="Font" id="Font_yeu2m"]
+data/0 = ExtResource( "4_s1aqs" )
+
+[sub_resource type="Theme" id="Theme_xke0m"]
+default_font = SubResource( "Font_yeu2m" )
+/fonts/e = SubResource( "Font_yeu2m" )
+
 [node name="World" type="Node3D"]
 transform = Transform3D(1, 0.0003427, -0.00016891, -0.000342464, 0.999999, 0.00143352, 0.000169389, -0.00143346, 0.999999, 0, 0, 0)
 script = ExtResource( "1_ssex7" )
@@ -58,6 +67,21 @@ transform = Transform3D(1, -3.07267e-10, 0, 5.68434e-13, 1, -1.28057e-09, 0, 1.2
 
 [node name="Camera3D" type="Camera3D" parent="Plane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="Count" type="RichTextLabel" parent="Plane/Camera3D"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 757.0
+offset_bottom = 70.0
+rect_clip_content = false
+theme = SubResource( "Theme_xke0m" )
+theme_override_font_sizes/normal_font_size = 100
+text = "placeholder"
+scroll_active = false
+script = ExtResource( "5_j5w1w" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "4_wvqgg" )
