@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://h5hpkfag388g"]
+[gd_scene load_steps=14 format=3 uid="uid://h5hpkfag388g"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_plp0e"]
 [ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="3_x60ho"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="6_n4tb4"]
 [ext_resource type="AudioStream" uid="uid://cwxs0yjdmrvnb" path="res://Assets/night.ogg" id="7_du5if"]
 [ext_resource type="Texture2D" uid="uid://bypwrbjt0puue" path="res://Assets/best.jpg" id="8_hkp0e"]
+[ext_resource type="Script" path="res://Scenes/time.gd" id="8_pxm4p"]
 
 [sub_resource type="Font" id="Font_yeu2m"]
 data/0 = ExtResource( "4_hclwx" )
@@ -64,3 +65,4 @@ environment = SubResource( "Environment_wd2wd" )
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, -0.000411069, -0.000206898, 8.62387e-05, -0.274245, 0.96166, -0.000452037, -0.96166, -0.274245, -0.0154414, 45.0899, 0.0646373)
 directional_shadow_mode = 0
+script = ExtResource( "8_pxm4p" )
