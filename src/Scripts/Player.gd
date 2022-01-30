@@ -7,7 +7,7 @@ const ringTimeValue_day = 0.5
 
 var points
 const night_cycle_total_time = 30
-var day_cycle_total_time
+var day_cycle_total_time 
 
 var mode 
 var current_time

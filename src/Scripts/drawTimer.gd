@@ -6,6 +6,4 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
-	
-	#self.text = str()
+	self.text = "%.2f"%(Player.night_cycle_total_time-Player.getCurrentTime())

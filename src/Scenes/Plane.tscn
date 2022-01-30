@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://64yw3lpv2f7b" path="res://Assets/blimp.obj" id="3"]
 [ext_resource type="Material" path="res://Assets/Blimp.material" id="4"]
 [ext_resource type="AudioStream" uid="uid://cs8tumvk1hbpi" path="res://Assets/blimp.wav" id="4_07baa"]
-[ext_resource type="Theme" uid="uid://ybe7hob43fd0" path="res://Scenes/text_theme.tres" id="5_8pbk0"]
+[ext_resource type="Theme" uid="uid://u4r31owwli1f" path="res://Scenes/text_theme.tres" id="5_8pbk0"]
 [ext_resource type="Script" path="res://Scripts/drawCount.gd" id="6_nn361"]
 [ext_resource type="Script" path="res://Scripts/drawTimer.gd" id="7_pax7o"]
 
