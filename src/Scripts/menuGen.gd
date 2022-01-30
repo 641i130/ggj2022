@@ -3,13 +3,12 @@ extends Node3D
 const chunk_size = 64
 
 const init_chunk_amount = 16
-const chunk_amount = 8
+const chunk_amount = 16
 #const chunk_render_count = 64
 var unload_dis
 
 #const chunk_amount = 64
 #const unload_dis = chunk_size*8
-
 
 var noise
 var chunks = {}
@@ -22,6 +21,7 @@ const max_threads = 16
 
 # Rings
 var rings
+
 var seeed
 
 func _ready():
@@ -30,11 +30,9 @@ func _ready():
 	seeed = rng.randi()
 	# Init randomization stuffs
 	self.unload_dis = chunk_size * init_chunk_amount
-	
 	# Enable threading for faster loadtimes!
 	for i in max_threads:
 		threads.append(Thread.new())
-	
 	# Generate rings in a very cursed way
 	var player_translation = $Plane.position
 	var p_x = int(player_translation.x)/chunk_size
@@ -48,6 +46,7 @@ func _ready():
 			chunks[key] = chunk #PUT into ready chunks!
 	# RINGS
 	rings = RingMaker.new(get_tree().get_root(), chunk_size)
+	rings.spawnRings($Plane.position) # Tell ring maker player pos
 
 func _process(delta):
 	# Chunks
@@ -56,7 +55,7 @@ func _process(delta):
 	reset_chunks()
 
 	# Rings
-	rings.spawnRings($Plane.position) # Tell ring maker player pos
+	
 
 # ==================================================CHUNKS============================================
 func add_chunk(x, z):
@@ -123,3 +122,8 @@ func reset_chunks():
 			chk.should_remove = true
 
 # ==================================================CHUNKS============================================
+
+
+func _on_menu_button_gui_input(event):
+	# On button press?
+	get_tree().change_scene("res://Scenes/Night.tscn")

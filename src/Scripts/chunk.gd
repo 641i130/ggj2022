@@ -3,25 +3,28 @@ class_name Chunk
 
 var mesh_instance
 var noise
+var seed
 var x
 var z
 var chunk_size
 var should_remove = true
 
-func _init(_noise, _x, _z, _chunk_size):
+func _init(_noise, _x, _z, _chunk_size,seed):
 	self.noise = _noise
 	self.x = _x
 	self.z = _z
 	self.chunk_size = _chunk_size
+	self.seed = seed
 	
 func _ready():
 	generate_chunk()
 
 func generate_chunk():
-	randomize()
 	noise = OpenSimplexNoise.new()
 	noise.period = 200
 	noise.octaves = 7
+	noise.seed = self.seed
+	print(noise.seed)
 	var plane_mesh = PlaneMesh.new() # Base mesh we are modifying
 	plane_mesh.size = Vector2(chunk_size,chunk_size)
 	plane_mesh.subdivide_depth = chunk_size * 0.25

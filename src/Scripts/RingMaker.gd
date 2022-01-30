@@ -37,6 +37,5 @@ func placeRing(x,y,z):
 	var ring = ringScene.instantiate()
 	ring.position = (Vector3(x,y,z))
 	ring.rotation.y = self.rng.randi_range(0,180)
-	print(ring.position)
 	self.rings.append(ring)
 	self.nodeRoot.add_child(ring)

@@ -7,8 +7,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qecjg"]
 shader = ExtResource( "1_a5apq" )
-shader_param/_density = 0.05
-shader_param/cloud_coverage = 0.25
+shader_param/_density = 0.109
+shader_param/cloud_coverage = 0.673
 shader_param/_time_scale = 1.0
 shader_param/_time_offset = 0.0
 shader_param/rayleigh = 2.0

@@ -34,7 +34,7 @@ _global_script_class_icons={
 
 config/name="ggj2022"
 config/description="Ring collecting game with fancy clouds and a weird blimp."
-run/main_scene="res://Scenes/Night.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0")
 
@@ -50,8 +50,8 @@ settings/stdout/print_fps=true
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/fullscreen=true
 window/vsync/vsync_mode=0
+window/stretch/aspect="expand"
 window/vsync/use_vsync=false
 
 [input]
