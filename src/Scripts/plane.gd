@@ -70,6 +70,3 @@ func get_input(delta):
 	pitch_input = 0
 	pitch_input -= Input.get_action_strength("pitch_down")
 	pitch_input += Input.get_action_strength("pitch_up")
-	
-	
-

@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dfkye0uf4i6w1" path="res://Assets/weather.bmp" id="3_qt1cp"]
 [ext_resource type="StreamTexture3D" uid="uid://c4dp6g6gouj2b" path="res://Assets/worlnoise.bmp" id="4_les07"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qecjg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_apjvn"]
 shader = ExtResource( "1_a5apq" )
-shader_param/_density = 0.05
-shader_param/cloud_coverage = 0.25
+shader_param/_density = 0.109
+shader_param/cloud_coverage = 0.673
 shader_param/_time_scale = 1.0
 shader_param/_time_offset = 0.0
 shader_param/rayleigh = 2.0
@@ -24,12 +24,12 @@ shader_param/worlnoise = ExtResource( "4_les07" )
 shader_param/perlworlnoise = ExtResource( "2_ttd4a" )
 shader_param/weathermap = ExtResource( "3_qt1cp" )
 
-[sub_resource type="Sky" id="Sky_nbmrj"]
-sky_material = SubResource( "ShaderMaterial_qecjg" )
+[sub_resource type="Sky" id="Sky_0rwql"]
+sky_material = SubResource( "ShaderMaterial_apjvn" )
 
 [resource]
 background_mode = 2
-sky = SubResource( "Sky_nbmrj" )
+sky = SubResource( "Sky_0rwql" )
 ambient_light_color = Color(0, 1, 0.372549, 1)
 tonemap_mode = 2
 tonemap_white = 3.22

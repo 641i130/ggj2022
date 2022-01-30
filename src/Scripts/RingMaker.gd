@@ -37,7 +37,7 @@ func placeRing(x,y,z):
 	var ring = ringScene.instantiate()
 	ring.position = (Vector3(x,y,z))
 	ring.rotation.y = self.rng.randi_range(0,180)
-	#print(ring.position)
+
 	var key = str(x) + "," + str(y) + "," + str(z) # Yes, keys are strings :P TODO optimize
 	if not self.rings.has(key):
 		self.rings[key] = ring
