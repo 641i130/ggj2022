@@ -1,20 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://2niv74vygfue"]
+[gd_scene load_steps=10 format=3 uid="uid://cxb55amo3e5di"]
 
 [ext_resource type="Script" path="res://Scripts/World.gd" id="1_plp0e"]
 [ext_resource type="PackedScene" uid="uid://b52exrn3mgo2e" path="res://Scenes/Plane.tscn" id="3_x60ho"]
-[ext_resource type="FontData" uid="uid://dq78f0y210okb" path="res://Assets/CloudyCloud-nREq4.otf" id="4_hclwx"]
-[ext_resource type="Script" path="res://Count.gd" id="5_5sbjn"]
 [ext_resource type="AudioStream" uid="uid://byqaf2rjf8fs4" path="res://Assets/ambience.ogg" id="6_n4tb4"]
 [ext_resource type="AudioStream" uid="uid://cwxs0yjdmrvnb" path="res://Assets/night.ogg" id="7_du5if"]
 [ext_resource type="Texture2D" uid="uid://bypwrbjt0puue" path="res://Assets/best.jpg" id="8_hkp0e"]
-[ext_resource type="Script" path="res://Scenes/nighttime.gd" id="8_pxm4p"]
-
-[sub_resource type="Font" id="Font_yeu2m"]
-data/0 = ExtResource( "4_hclwx" )
-
-[sub_resource type="Theme" id="Theme_xke0m"]
-default_font = SubResource( "Font_yeu2m" )
-/fonts/e = SubResource( "Font_yeu2m" )
+[ext_resource type="Script" path="res://Scripts/nighttime.gd" id="8_pxm4p"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1gm8p"]
 panorama = ExtResource( "8_hkp0e" )
@@ -29,27 +20,6 @@ sky = SubResource( "Sky_11n7k" )
 [node name="Night" type="Node3D"]
 transform = Transform3D(1, 0.0003427, -0.00016891, -0.000342464, 0.999999, 0.00143352, 0.000169389, -0.00143346, 0.999999, 0, 0, 0)
 script = ExtResource( "1_plp0e" )
-
-[node name="Plane" parent="." instance=ExtResource( "3_x60ho" )]
-transform = Transform3D(1, -3.07267e-10, 0, 5.68434e-13, 1, -1.28057e-09, 0, 1.28057e-09, 1, -1.01682e-09, 30, 3.72529e-09)
-
-[node name="Camera3D" type="Camera3D" parent="Plane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
-
-[node name="Count" type="RichTextLabel" parent="Plane/Camera3D"]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 757.0
-offset_bottom = 70.0
-rect_clip_content = false
-theme = SubResource( "Theme_xke0m" )
-theme_override_font_sizes/normal_font_size = 100
-text = "placeholder"
-scroll_active = false
-script = ExtResource( "5_5sbjn" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "6_n4tb4" )
@@ -66,3 +36,6 @@ environment = SubResource( "Environment_wd2wd" )
 transform = Transform3D(1, -0.000411069, -0.000206898, 8.62387e-05, -0.274245, 0.96166, -0.000452037, -0.96166, -0.274245, -0.0154414, 45.0899, 0.0646373)
 directional_shadow_mode = 0
 script = ExtResource( "8_pxm4p" )
+
+[node name="Plane" parent="." instance=ExtResource( "3_x60ho" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)

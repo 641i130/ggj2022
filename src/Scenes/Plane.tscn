@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b52exrn3mgo2e"]
+[gd_scene load_steps=9 format=3 uid="uid://b52exrn3mgo2e"]
 
 [ext_resource type="Script" path="res://Scripts/plane.gd" id="1"]
 [ext_resource type="ArrayMesh" uid="uid://64yw3lpv2f7b" path="res://Assets/blimp.obj" id="3"]
 [ext_resource type="Material" path="res://Assets/Blimp.material" id="4"]
 [ext_resource type="AudioStream" uid="uid://cs8tumvk1hbpi" path="res://Assets/blimp.wav" id="4_07baa"]
+[ext_resource type="Theme" uid="uid://ybe7hob43fd0" path="res://Scenes/text_theme.tres" id="5_8pbk0"]
+[ext_resource type="Script" path="res://Scripts/drawCount.gd" id="6_nn361"]
+[ext_resource type="Script" path="res://Scripts/drawTimer.gd" id="7_pax7o"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.236773
@@ -24,3 +27,35 @@ shape = SubResource( "1" )
 
 [node name="Woosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( "4_07baa" )
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="Count" type="RichTextLabel" parent="Camera3D"]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 945.0
+offset_bottom = 322.0
+rect_clip_content = false
+theme = ExtResource( "5_8pbk0" )
+theme_override_font_sizes/normal_font_size = 100
+text = "placeholder"
+scroll_active = false
+script = ExtResource( "6_nn361" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="RichTextLabel" parent="Camera3D"]
+offset_left = 1420.0
+offset_top = 40.0
+offset_right = 1880.0
+offset_bottom = 200.0
+theme = ExtResource( "5_8pbk0" )
+theme_override_font_sizes/normal_font_size = 150
+text = "00:00"
+text_direction = 2
+script = ExtResource( "7_pax7o" )
+__meta__ = {
+"_edit_use_anchors_": false
+}

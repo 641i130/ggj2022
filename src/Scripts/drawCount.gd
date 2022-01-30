@@ -6,4 +6,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	self.text = "Rings : " + str(Player.points)
+	# If player in night scene
+	if (Player.mode == Player.Mode.NIGHT):
+		self.text = ""
+	else:
+		self.text = "Rings : " + str(Player.points)

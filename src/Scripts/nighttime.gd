@@ -24,5 +24,5 @@ func _process(delta):
 		self.CycleComplete()
 
 func CycleComplete():
-	get_tree().change_scene("res://Scenes/Day.tscn")	
+	get_tree().change_scene("res://Scenes/Day.tscn")
 

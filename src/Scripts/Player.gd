@@ -60,11 +60,13 @@ func getCycleTotalTime():
 
 func ringCollected():
 	#TODO:: remove conditional by creating 'day'+'night' rings
+	
 	if mode == Mode.NIGHT:
 		self.addTime(ringTimeValue_night)
 	if mode == Mode.DAY:
 		self.addTime(ringTimeValue_day)
 		points += 1
+	print(str(self.points))
 
 func setMode(_mode):
 	self.mode = _mode
