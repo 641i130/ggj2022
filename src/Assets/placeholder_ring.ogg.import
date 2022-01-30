@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://bo3q1ivfsvuvg"
+path="res://.godot/imported/placeholder_ring.ogg-8517e1b8b4d60bfd69ac6404eb1e6047.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/placeholder_ring.ogg"
+dest_files=["res://.godot/imported/placeholder_ring.ogg-8517e1b8b4d60bfd69ac6404eb1e6047.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

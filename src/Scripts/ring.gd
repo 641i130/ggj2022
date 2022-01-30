@@ -30,7 +30,7 @@ func _physics_process(delta):
 func _on_ring_body_entered(body):
 	print("COLLIDED")
 	# trigger pick up sound...
-	
+	$RingCollect.playing = true
 	# trigger clean up (wait til body exits?)
-	
+	self.queue_free()
 	#

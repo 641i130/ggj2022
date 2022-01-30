@@ -7,7 +7,7 @@ var max_flight_speed = 30
 # Turn rate
 var turn_speed = 0.25
 # Climb/dive rate
-var pitch_speed = 100
+var pitch_speed = 20
 # Lerp speed returning wings to level
 var level_speed = 0.75
 # Throttle change speed
