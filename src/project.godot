@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="ggj2022"
 config/description="Ring collecting game with fancy clouds and a weird blimp."
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/Day.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0")
 

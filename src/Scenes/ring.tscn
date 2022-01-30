@@ -24,4 +24,5 @@ skeleton = NodePath("")
 stream = ExtResource( "3_t3iaq" )
 
 [connection signal="body_entered" from="." to="." method="_on_ring_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_ring_body_exited"]
 [connection signal="finished" from="RingSFX" to="." method="_on_ring_sfx_finished"]
